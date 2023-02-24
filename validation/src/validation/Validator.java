@@ -47,6 +47,10 @@ public class Validator {
 	 * @throws RuleException
 	 */
 	public void addFieldRules(String fieldName, String fieldValue, String rules) throws RuleException {
+		
+		if(fieldName == null || fieldName.isBlank() || rules == null || rules.isBlank())
+			throw new RuleException("Bad arguments: field name and rules can not be null or empty");
+		
 		fieldsUnderValidation.add(new Field(fieldName, fieldValue, rules));
 	}
 	

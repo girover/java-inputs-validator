@@ -37,7 +37,6 @@ public class Messages {
 			parameterizedRulesMessages.put("between", "The %s must be between %s and %s."); // age between:5,50
 			parameterizedRulesMessages.put("in", "The %s must be in %s."); // role in:admin,user
 			parameterizedRulesMessages.put("notIn", "The %s cannot be in %s."); // role in:admin,user
-			parameterizedRulesMessages.put("notIn", "The %s cannot be in %s."); // role notIn:admin,user
 			parameterizedRulesMessages.put("max", "The %s must not be greater than %s."); // age max:100
 			parameterizedRulesMessages.put("min", "The %s must be at least %s."); // age min:10
 			parameterizedRulesMessages.put("digits_max", "The %s must not have more than %s digits");

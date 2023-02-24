@@ -33,6 +33,7 @@ public class Main {
 			validator.addFieldRules("emailConfirm", emailConfirm, "same:email");
 			validator.addFieldRules("tall", tall, "required|regex:[0-9A-Z]+");
 			validator.addFieldRules("required", required, "required");
+			validator.addFieldRules("name", "majed", "e");
 			
 			validator.addRuleMessage("date", "date", "date skal vaere en valid dato.");
 			validator.addRuleMessage("email", "email", "Fuck you please provide a valid email address.");
