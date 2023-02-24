@@ -12,6 +12,7 @@
   - [prerequisites](#prerequisites)
   - [Usage](#usage)
     - [Validator Class](#validator-class)
+    - [How to write rules](#how-to-write-rules)
     - [Customizing error messages](#customizing-error-messages)
     - [All available rules](#all-available-rules)
   - [Changelog](#changelog)
@@ -52,13 +53,38 @@ public class Main {
 
 And now to make **validator** starts validating a field, we should first add the wanted rules   
 to this field. This can be done by using the method ```addFieldRules(fieldName, fieldValue, rules)```.
-This method accept three parameters, the first one is the name of the field we want to validate. The second parameter is the value of the field under validation, and the third is all rules this field
+This method accept three parameters, the first one is the name of the field we want to validate. The second parameter is the value of the field under validation, and the third is all rules this field's
 value must pass.
 All the tree parameter are of type **String**.
 .
 .
 .
 
+## How to write rules
+
+There are two types of rules ```explicit``` and ```parameterized```   
+The difference between these two types is that **parameterized** rules accept parameter,   
+while ```explicit``` rules do not take any parameter.
+
+As mentioned in the section [Validator Class](#validator-class), **rules** are passed    
+to the method ```addFieldRules(fieldName, fieldValue, rules)``` as a **String**.   
+But this string has a special form. Rules are separated form each other by using ``` | ``` character.   
+For instance ```addFieldRules("email", "example@domain.com", "required|email")```.   
+As we can see the field **email** has two **rules** to pass. These rules are ```required``` and ```email```.   
+**required** means that this field can not be null or empty. **email** means that this field must be a valid email address.
+There is no limitation for how many rules you write in one string.
+But what if a rule takes parameters. How to pass parameters to the rule?
+It is very simple to pass parameters to the rule by using ``` : ``` character between rule name and parameters.
+For example: ```addFieldRules("name", "Majed", "required|min:2|max:20")```.   
+This means name must be provided because of **required**, the length of the name can not be shorter than 2 letters   
+and the length of name can not be longer than 20.   
+There are also some rules accepts more than one parameter, so how to pass these parameters?   
+It is also very simple by using ``` , ``` character between parameters.   
+For example: ```addFieldRules("userRole", "admin", "required|in:admin,student,teacher")```. 
+
+.
+.
+.
 ## Customizing error messages
 .
 .
