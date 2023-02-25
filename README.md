@@ -128,16 +128,16 @@ There are also some rules accept more than one parameter, so how to pass these p
 It is also very simple by using ``` , ``` character between parameters.   
 For example: ```addFieldRules("userRole", "admin", "required|in:admin,student,teacher")```.   
 This means that the value of **userRole** must be **admin**, **student** or **teacher**.
+|---------------------------------------|
+| > **Note**     |
+| > All fields are optional by default, which means no rules will be applied to them,   |
 
-> **Note**
-> All fields are optional as default, which means no rules will be applied to them,   
+| >if their values are null or empty string.   |
 
-> if their values are null or empty string.   
+| > But when using ```required``` rule, so the value can not be null or empty   |
+| > and all other rules also will be applied.   |
 
-> But when using ```required``` rule, so the value can not be null or empty   
-> and all other rules also will be applied.   
-
-> Look at this example
+| > Look at this example |
 
 ```ruby
 import validation.Validator;
