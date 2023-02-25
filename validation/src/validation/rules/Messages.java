@@ -41,6 +41,7 @@ public class Messages {
 			parameterizedRulesMessages.put("min", "The %s must be at least %s."); // age min:10
 			parameterizedRulesMessages.put("digits_max", "The %s must not have more than %s digits");
 			parameterizedRulesMessages.put("digits_min", "The %s must have at least %s digits.");
+			parameterizedRulesMessages.put("length", "The length of %s must be %s.");
 			parameterizedRulesMessages.put("length_max", "The length of %s must not be longer than %s.");
 			parameterizedRulesMessages.put("length_min", "The length of %s must not be shorter than %s.");
 			parameterizedRulesMessages.put("format", "The date format of %s must be of %s.");

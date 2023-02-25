@@ -27,7 +27,7 @@ public class ExplicitRule extends Rule {
 	protected Matcher parseMatcher(String rule) throws ValidationException {
 		switch (rule) {
 		case "required": {
-			return string -> string != null;
+			return string -> string != null && !string.isBlank();
 		}
 		case "notEmpty": {
 			return string -> !Str.isEmpty(string);

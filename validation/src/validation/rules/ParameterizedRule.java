@@ -71,6 +71,9 @@ public class ParameterizedRule extends Rule {
 		case "digits_min": {
 			return matchLength(">=");
 		}
+		case "length": {
+			return matchLength("=");
+		}
 		case "length_max": {
 			return matchLength("<=");
 		}
