@@ -1,7 +1,7 @@
 import validation.Field;
+import validation.ValidationException;
 import validation.Validator;
 import validation.rules.Rule;
-import validation.rules.RuleException;
 
 public class Main {
 	private static String email = "majedgmail.com";
@@ -50,7 +50,7 @@ public class Main {
 				}
 			}
 			
-		} catch (RuleException e) {
+		} catch (ValidationException e) {
 			e.printStackTrace();
 		}
 	}

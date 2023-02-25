@@ -16,6 +16,7 @@
     - [Displaying error messages](#displaying-error-messages)
     - [Customizing error messages](#customizing-error-messages)
     - [All available rules](#all-available-rules)
+  - [Class Diagram](#class-diagram)
   - [Changelog](#changelog)
   - [Contributing](#contributing)
   - [Security Vulnerabilities](#security-vulnerabilities)
@@ -185,6 +186,10 @@ You can call the following method on an object of Tree
 |-----|----------------------------|--------------------------------------------------------|
 
 
+
+## Class Diagram
+
+![Screenshot_20230225_021714](https://user-images.githubusercontent.com/53403538/221359713-6dcaa4b7-0c5a-43ed-9bb6-e10fb813622e.png)
 
 ## Changelog
 

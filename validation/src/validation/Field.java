@@ -3,7 +3,6 @@ package validation;
 import java.util.ArrayList;
 
 import validation.rules.Rule;
-import validation.rules.RuleException;
 import validation.rules.RuleFactory;
 
 public class Field {
@@ -26,7 +25,7 @@ public class Field {
 	private ArrayList<Rule> failedRules;
 	
 	
-	public Field(String name, String value, String rules) throws RuleException {
+	public Field(String name, String value, String rules) throws ValidationException {
 		
 		this.name = name;
 		this.value = value;
@@ -38,7 +37,7 @@ public class Field {
 		makeFieldRules();
 	}
 
-	private void makeFieldRules() throws RuleException {
+	private void makeFieldRules() throws ValidationException {
 
 		RuleFactory ruleFactory = new RuleFactory();
 		
@@ -101,7 +100,7 @@ public class Field {
 		return passedAllRules;
 	}
 
-	public void pass(boolean stopOnFirstFailure) throws RuleException {
+	public void pass(boolean stopOnFirstFailure) throws ValidationException {
 		// If this field had been checked before 
 		if(hadBeenChecked)
 			return;

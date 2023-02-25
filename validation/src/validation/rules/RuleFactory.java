@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import validation.Field;
+import validation.ValidationException;
 
 public class RuleFactory {
 	
@@ -78,14 +79,14 @@ public class RuleFactory {
 	 */
 	private Field field;
 	
-	public void generateRulesForField(Field field) throws RuleException {
+	public void generateRulesForField(Field field) throws ValidationException {
 		
 		this.field = field;
 
 		parse();
 	}
 	
-	private void parse() throws RuleException {
+	private void parse() throws ValidationException {
 		String[] pasedRules = field.getRulesString().split(RULES_SEPARATOR);
 
 		for (String rule : pasedRules) {
@@ -96,21 +97,21 @@ public class RuleFactory {
 		}
 	}
 	
-	private ExplicitRule parseExplicitRule(String ruleName) throws RuleException {
+	private ExplicitRule parseExplicitRule(String ruleName) throws ValidationException {
 		
 		if(!validExplicitRules.contains(ruleName))
-			throw new RuleException("Rule " + ruleName + " is not valid explicit rule.");
+			throw new ValidationException("Rule " + ruleName + " is not valid explicit rule.");
 		if(ruleName.equals("required"))
 			field.setRequired();
 		return new ExplicitRule(ruleName);
 	}
 	
-	private ParameterizedRule parseParameterizedRule(String ruleNameWithParams) throws RuleException {
+	private ParameterizedRule parseParameterizedRule(String ruleNameWithParams) throws ValidationException {
 		// We separate rule from its parameters. example [digits:5] [between:20,100]
 		String[] ruleWithParams = ruleNameWithParams.split(RULE_PARAMS_SEPARATOR);
 		
 		if(!validParameterizedRules.contains(ruleWithParams[0]))
-			throw new RuleException("Rule " + ruleWithParams[0] + " is not valid parameterized rule.");
+			throw new ValidationException("Rule " + ruleWithParams[0] + " is not valid parameterized rule.");
 		
 		if(ruleWithParams[0].equals("required"))
 			field.setRequired();

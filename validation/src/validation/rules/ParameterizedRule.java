@@ -3,6 +3,7 @@ package validation.rules;
 import java.util.ArrayList;
 
 import validation.Regex;
+import validation.ValidationException;
 import validation.Str;
 
 public class ParameterizedRule extends Rule {
@@ -19,9 +20,9 @@ public class ParameterizedRule extends Rule {
 	 * @param fieldName      The field under validation.
 	 * @param fieldValue     The value of the field under validation.
 	 * @param name           The rule this field must pass.
-	 * @throws RuleException
+	 * @throws ValidationException
 	 */
-	public ParameterizedRule(String name) throws RuleException {
+	public ParameterizedRule(String name) throws ValidationException {
 		super(name, "parameterized");
 		
 		setMatcher(parseMatcher(getName()));
@@ -48,9 +49,9 @@ public class ParameterizedRule extends Rule {
 	 * Here we generate Lambda function for a rule to match a field value.
 	 * @param rule
 	 * @return Lambda Function to matches a value for given rule.
-	 * @throws RuleException
+	 * @throws ValidationException
 	 */
-	protected Matcher parseMatcher(String rule) throws RuleException {
+	protected Matcher parseMatcher(String rule) throws ValidationException {
 		switch (rule) {
 		case "digits": {
 			return matchLength("==");
@@ -104,11 +105,11 @@ public class ParameterizedRule extends Rule {
 			return string -> false;
 		}
 		default:
-			throw new RuleException("Could not generate rule: " + rule);
+			throw new ValidationException("Could not generate rule: " + rule);
 		}
 	}
 	
-	private Matcher matchBetween() throws RuleException {
+	private Matcher matchBetween() throws ValidationException {
 		return value->{
 			try {
 				long fValue = Long.parseLong(value);
@@ -125,7 +126,7 @@ public class ParameterizedRule extends Rule {
 		};
 	}
 	
-	private Matcher matchMax() throws RuleException {
+	private Matcher matchMax() throws ValidationException {
 		return value->{
 			// if the value is number so max is value.
 			if(Str.isNumeric(value))
@@ -135,7 +136,7 @@ public class ParameterizedRule extends Rule {
 		};
 	}
 	
-	private Matcher matchMin() throws RuleException {
+	private Matcher matchMin() throws ValidationException {
 		return value->{
 			// if the value is number so max is value.
 			if(Str.isNumeric(value))
@@ -145,7 +146,7 @@ public class ParameterizedRule extends Rule {
 		};
 	}
 	
-	private Matcher matchLength(String operator) throws RuleException {
+	private Matcher matchLength(String operator) throws ValidationException {
 		return value->{
 			if(operator.equals(">="))
 				return value.length() >= Integer.parseInt(getParameters().get(0)) ? true : false;
@@ -158,7 +159,7 @@ public class ParameterizedRule extends Rule {
 		};
 	}
 	
-	private Matcher matchCompareValue(String operator) throws RuleException {
+	private Matcher matchCompareValue(String operator) throws ValidationException {
 		return value->{
 			try {
 				Double v = Double.parseDouble(value);

@@ -1,5 +1,7 @@
 package validation.rules;
 
+import validation.ValidationException;
+
 public abstract class Rule {
 
 	protected String type;       // {explicit, parameterized}
@@ -27,7 +29,7 @@ public abstract class Rule {
 		return matcher;
 	}
 	
-	public boolean pass(String fieldValue) throws RuleException {
+	public boolean pass(String fieldValue) throws ValidationException {
 		passed = matcher.matches(fieldValue);
 		return isPassed();
 	}

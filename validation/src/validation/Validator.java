@@ -6,7 +6,6 @@ import validation.rules.ExplicitRule;
 import validation.rules.Messages;
 import validation.rules.ParameterizedRule;
 import validation.rules.Rule;
-import validation.rules.RuleException;
 import validation.rules.RuleMessage;
 import validation.rules.RuleMessagesBag;
 
@@ -44,12 +43,12 @@ public class Validator {
 	 * @param fieldName
 	 * @param fieldValue
 	 * @param rules
-	 * @throws RuleException
+	 * @throws ValidationException
 	 */
-	public void addFieldRules(String fieldName, String fieldValue, String rules) throws RuleException {
+	public void addFieldRules(String fieldName, String fieldValue, String rules) throws ValidationException {
 		
 		if(fieldName == null || fieldName.isBlank() || rules == null || rules.isBlank())
-			throw new RuleException("Bad arguments: field name and rules can not be null or empty");
+			throw new ValidationException("Bad arguments: field name and rules can not be null or empty");
 		
 		fieldsUnderValidation.add(new Field(fieldName, fieldValue, rules));
 	}
@@ -75,9 +74,9 @@ public class Validator {
 	 * Determine if all specified rules passes the user inputs
 	 * @param boolean When one field fails to pass one rule, it will stop checking more.
 	 * @return boolean
-	 * @throws RuleException
+	 * @throws ValidationException
 	 */
-	public boolean pass(boolean stopOnFirstFailure) throws RuleException {
+	public boolean pass(boolean stopOnFirstFailure) throws ValidationException {
 
 		passFieldsUnderValidation(stopOnFirstFailure);
 		
@@ -90,13 +89,13 @@ public class Validator {
 	 * As default, the validator will check all the rules for a field
 	 * under validation despite all failures.
 	 * @return
-	 * @throws RuleException
+	 * @throws ValidationException
 	 */
-	public boolean pass() throws RuleException {
+	public boolean pass() throws ValidationException {
 		return pass(false);
 	}
 	
-	private void passFieldsUnderValidation(boolean stopOnFirstFailure) throws RuleException {
+	private void passFieldsUnderValidation(boolean stopOnFirstFailure) throws ValidationException {
 
 		for (Field field : fieldsUnderValidation) {
 			/**
@@ -105,7 +104,7 @@ public class Validator {
 			if(field.hasRule("same")) {
 				Rule rule = field.getRuleByName("same");
 				if(!(rule instanceof ParameterizedRule))
-					throw new RuleException("[same] rule has no parameters.");
+					throw new ValidationException("[same] rule has no parameters.");
 				
 				String fieldName = ((ParameterizedRule)rule).getParameters().get(0);
 

@@ -1,5 +1,6 @@
 package validation.rules;
 
+import validation.ValidationException;
 import validation.Str;
 
 public class ExplicitRule extends Rule {
@@ -8,9 +9,9 @@ public class ExplicitRule extends Rule {
 	 * @param fieldName      The field under validation.
 	 * @param fieldValue     The value of the field under validation.
 	 * @param name           The rule this field must pass.
-	 * @throws RuleException
+	 * @throws ValidationException
 	 */
-	public ExplicitRule(String name) throws RuleException {
+	public ExplicitRule(String name) throws ValidationException {
 		super(name, "explicit");
 		setMatcher(parseMatcher(name));
 	}
@@ -21,9 +22,9 @@ public class ExplicitRule extends Rule {
 	 * passes the given rule.
 	 * @param rule
 	 * @return Lambda Function to matches a value for given rule.
-	 * @throws RuleException
+	 * @throws ValidationException
 	 */
-	protected Matcher parseMatcher(String rule) throws RuleException {
+	protected Matcher parseMatcher(String rule) throws ValidationException {
 		switch (rule) {
 		case "required": {
 			return string -> string != null;
@@ -50,7 +51,7 @@ public class ExplicitRule extends Rule {
 			return string -> Str.isDate(string);
 		}
 		default:
-			throw new RuleException("Could not generate rule: " + rule);
+			throw new ValidationException("Could not generate rule: " + rule);
 		}
 	}
 }
