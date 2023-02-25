@@ -44,7 +44,7 @@ public class Messages {
 			parameterizedRulesMessages.put("length", "The length of %s must be %s.");
 			parameterizedRulesMessages.put("length_max", "The length of %s must not be longer than %s.");
 			parameterizedRulesMessages.put("length_min", "The length of %s must not be shorter than %s.");
-			parameterizedRulesMessages.put("format", "The date format of %s must be of %s.");
+			parameterizedRulesMessages.put("format", "The date format of %s must be %s.");
 			parameterizedRulesMessages.put("gt", "The %s must be greater than %s.");
 			parameterizedRulesMessages.put("lt", "The %s must be less than %s.");
 			parameterizedRulesMessages.put("gte", "The %s must be greater than or equal to %s.");

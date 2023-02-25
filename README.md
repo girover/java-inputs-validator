@@ -154,7 +154,7 @@ public class Main {
 	}
 }
 ```
-The value of field ```name``` is empty string and the rule ```required``` is not given to it, so the rule ```lengeth:10``` will not be applied to this field. 
+The value of field ```name``` is an empty string and the rule ```required``` is not given to it, so the rule ```lengeth:10``` will not be applied to this field. But if the value of ```name``` is not empty, then the rule ```length:10``` will be applied and ***error message*** will be generated if this value is not exactly 10 letters.
 
 ## Displaying error messages
 
@@ -169,8 +169,8 @@ import validation.Validator;
 public class Main {
 	private static String name      = "yourName";
 	private static String birthDate = "01/01/1990";
-	private static String CPR       = "1234567890";
-	private static String email     = "example@domain.com";
+	private static String CPR       = "123456789";
+	private static String email     = "example@domain@com";
 
 	public static void main(String[] args) {
 		
@@ -193,7 +193,13 @@ public class Main {
 	}
 }
 ```
-
+The result of this code will be:  
+``` 
+***The length of name must be 10.***   
+***The date format of birth date must be dd-mm-yyyy.***   
+***The CPR Field must be 10 digits.***   
+***The email address must be a valid email address.***
+```
 
 ## Customizing error messages
 .
