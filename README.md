@@ -130,9 +130,13 @@ For example: ```addFieldRules("userRole", "admin", "required|in:admin,student,te
 This means that the value of **userRole** must be **admin**, **student** or **teacher**.
 
 > **Note**
-> All fields are optional as default, which means no rules will be applied to it,
-> if the value of a field is null or empty.
-> But when using ```required``` rule, so the value can not be null or empty.
+> All fields are optional as default, which means no rules will be applied to them,   
+
+> if their values are null or empty string.   
+
+> But when using ```required``` rule, so the value can not be null or empty   
+> and all other rules also will be applied.   
+
 > Look at this example
 
 ```ruby
