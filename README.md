@@ -55,7 +55,7 @@ public class Main {
 
 And now to make **validator** starts validating a field, we should first add the required rules   
 to this field.    
-This can be done by calling the method **`addFieldRules(fieldName, fieldValue, rules)`** on  `validator`.   
+This can be done by calling the method **` - addFieldRules(fieldName, fieldValue, rules)`** on  `validator`.   
 This method accepts three parameters, the first one is the name of the field under validation.   
 The second parameter is the value of that field, and the third one is all rules this field's
 value must pass.
