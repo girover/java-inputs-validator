@@ -17,7 +17,7 @@ public class Main {
 			validator.addFieldRules("birth date", birthDate, "required|format:dd-mm-yyyy");
 			validator.addFieldRules("CPR Field", CPR, "required|digits:10");
 			validator.addFieldRules("email address", email, "required|email");
-			
+			validator.addRuleMessage("email address", "email", "du skal angive en gyldig e-mailadresse");
 			if(validator.pass())
 				System.out.println("Passed successfully");
 			else

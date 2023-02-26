@@ -132,7 +132,7 @@ public class Validator {
 		for (Field field : failedFields)
 			for (Rule rule : field.getFailedRules())
 				if(messagesBag.contains(field.getName(), rule.getName()))
-					rule.setMessage(messagesBag.get(rule.getName(), rule.getName()).getMessage());
+					rule.setMessage(messagesBag.get(field.getName(), rule.getName()).getMessage());
 				else if(rule.getMessage() == null || rule.getMessage().isBlank()) {
 					if(rule instanceof ExplicitRule) {
 						String message = Messages.getExplicitRuleMessage(rule.getName());

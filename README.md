@@ -194,17 +194,44 @@ public class Main {
 }
 ```
 The result of this code will be:  
-``` 
-***The length of name must be 10.***   
-***The date format of birth date must be dd-mm-yyyy.***   
-***The CPR Field must be 10 digits.***   
-***The email address must be a valid email address.***
+```
+The length of name must be 10.   
+The date format of birth date must be dd-mm-yyyy.   
+The CPR Field must be 10 digits.***   
+The email address must be a valid email address.   
 ```
 
 ## Customizing error messages
-.
-.
-.
+
+The messages we got from the example in the previous section are default messages.   
+But you can write your own messages for any rule on any field.   
+To do that you have to call the method ```addRuleMessage(fieldName, ruleName, message)``` on ```validator```.   
+Assuming you want to change the error message for ```email``` rule.
+
+```java 
+
+	try {
+		String email = "non-valid-email";
+		validator.addFieldRules("email address", email, "required|email");
+		validator.addRuleMessage("email address", "email", "du skal angive en gyldig e-mailadresse");
+			
+			if(validator.pass())
+				System.out.println("Passed successfully");
+			else
+				for(String errorMessage : validator.getErrorMessages())
+					System.out.println(errorMessage);
+					
+		} catch (ValidationException e) {
+			e.printStackTrace();
+		
+```
+
+The result of this code will be:  
+
+```
+du skal angive en gyldig e-mailadresse. 
+```
+
 ## All available rules
 
 There are two types of rules ```explicit``` and ```parameterized```   
