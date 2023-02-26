@@ -39,7 +39,7 @@ public class Messages {
 			parameterizedRulesMessages.put("notIn", "The %s cannot be in %s."); // role in:admin,user
 			parameterizedRulesMessages.put("max", "The %s must not be greater than %s."); // age max:100
 			parameterizedRulesMessages.put("min", "The %s must be at least %s."); // age min:10
-			parameterizedRulesMessages.put("digits_max", "The %s must not have more than %s digits");
+			parameterizedRulesMessages.put("digits_max", "The %s must not have more than %s digits.");
 			parameterizedRulesMessages.put("digits_min", "The %s must have at least %s digits.");
 			parameterizedRulesMessages.put("length", "The length of %s must be %s.");
 			parameterizedRulesMessages.put("length_max", "The length of %s must not be longer than %s.");
@@ -50,7 +50,8 @@ public class Messages {
 			parameterizedRulesMessages.put("gte", "The %s must be greater than or equal to %s.");
 			parameterizedRulesMessages.put("lte", "The %s must be less than or equal to %s.");
 			parameterizedRulesMessages.put("regex", "The %s not matches the Regular Expression %s.");
-			parameterizedRulesMessages.put("same", "The %s and %s must have the same value."); // email same:confirmation
+			parameterizedRulesMessages.put("mime", "The %s accepts only extentions: %s."); // email same:confirmation
+			parameterizedRulesMessages.put("same", "The %s doesn't match %s."); // email same:confirmation
 		}
 		
 		return parameterizedRulesMessages;

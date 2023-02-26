@@ -55,7 +55,7 @@ public class Main {
 
 And now to make **validator** starts validating a field, we should first add the required rules   
 to this field.    
-This can be done by calling the method ```addFieldRules(fieldName, fieldValue, rules)``` on  ```validator```.   
+This can be done by calling the method `addFieldRules(fieldName, fieldValue, rules)` on  `validator`.   
 This method accepts three parameters, the first one is the name of the field under validation.   
 The second parameter is the value of that field, and the third one is all rules this field's
 value must pass.
@@ -72,7 +72,7 @@ All the tree parameter are of type **String**.
     
 ```
 
-To tell validator to start validating the field for the added rules, you must call the method ```pass()``` or ```pass(boolean)```.
+To tell validator to start validating the field for the added rules, you must call the method `pass()` or `pass(boolean)`.
 
 
 ```java
@@ -84,7 +84,7 @@ To tell validator to start validating the field for the added rules, you must ca
 
 The method pass will also generate all **error messages** for all rules that the field does not pass.   
 But when a field fails to pass a specific rule, why to check all rules that come after this rule.   
-In this case you can pass ```true``` as argument to the method ```pass(boolean)``` to tell the validator to stop checking rules when the first failure occurs.   
+In this case you can pass `true` as argument to the method `pass(boolean)` to tell the validator to stop checking rules when the first failure occurs.   
 
 **Example**
 
@@ -101,13 +101,13 @@ In this case you can pass ```true``` as argument to the method ```pass(boolean)`
 
 ## How to write rules
 
-This package uses two types of rules ```explicit``` and ```parameterized```.   
+This package uses two types of rules `explicit` and `parameterized`.   
 The difference between these two types is that **parameterized** rules accept parameters,   
-while ```explicit``` rules do not.   
+while `explicit` rules do not.   
 
 As mentioned in the section [Validator Class](#validator-class), **rules** are passed    
-to the method ```addFieldRules(fieldName, fieldValue, rules)``` as a **String**.   
-But this string has a special form. Rules are separated from each other by using ``` | ``` character.   
+to the method `addFieldRules(fieldName, fieldValue, rules)` as a **String**.   
+But this string has a special form. Rules are separated from each other by using ` | ` character.   
 For instance:
 
 ```ruby 
@@ -116,21 +116,21 @@ validator.addFieldRules("email", "example@domain.com", "required|email")
 
 ```
 
-As we can see the field **email** has two **rules** to pass. These rules are ```required``` and ```email```.   
+As we can see the field **email** has two **rules** to pass. These rules are `required` and `email`.   
 **required** means that the value of this field can not be null or empty. **email** means that the value of this field must be a valid email address.   
 There is no limitation for how many rules you write in one string.
 ***But what if a rule takes parameters. How to pass parameters to the rule?***
-It is very simple to pass parameters to the rule by using ``` : ``` character between rule name and parameters.
-For example: ```addFieldRules("name", "Majed", "required|min:2|max:20")```.   
+It is very simple to pass parameters to the rule by using ` : ` character between rule name and parameters.
+For example: `addFieldRules("name", "Majed", "required|min:2|max:20")`.   
 This means name must be provided because of **required**, the length of the name can not be shorter than 2 letters   
 and the length of name can not be longer than 20.   
 There are also some rules accept more than one parameter, so how to pass these parameters?   
-It is also very simple by using ``` , ``` character between parameters.   
-For example: ```addFieldRules("userRole", "admin", "required|in:admin,student,teacher")```.   
+It is also very simple by using ` , ` character between parameters.   
+For example: `addFieldRules("userRole", "admin", "required|in:admin,student,teacher")`.   
 This means that the value of **userRole** must be **admin**, **student** or **teacher**.
 
 > **Note**
-> All fields are optional by default, which means no rules will be applied to them, if their values are null or empty string. But when using ```required``` rule, so the value can not be null or empty and all other rules also will be applied. Look at this example.
+> All fields are optional by default, which means no rules will be applied to them, if their values are null or empty string. But when using `required` rule, so the value can not be null or empty and all other rules also will be applied. Look at this example.
 
 ```ruby
 import validation.Validator;
@@ -154,12 +154,12 @@ public class Main {
 	}
 }
 ```
-The value of field ```name``` is an empty string and the rule ```required``` is not given to it, so the rule ```lengeth:10``` will not be applied to this field. But if the value of ```name``` is not empty, then the rule ```length:10``` will be applied and ***error message*** will be generated if this value is not exactly 10 letters.
+The value of field `name` is an empty string and the rule `required` is not given to it, so the rule `length:10` will not be applied to this field. But if the value of `name` is not empty, then the rule `length:10` will be applied and ***error message*** will be generated if this value is not exactly 10 letters.
 
 ## Displaying error messages
 
-To get all ***error messages*** after calling the method ```pass()```, you can call the method ```getErrorMessages```.   
-This method will get all error messages generated by ```pass()``` method as ```ArrayList<String>```.   
+To get all ***error messages*** after calling the method `pass()`, you can call the method `getErrorMessages`.   
+This method will get all error messages generated by `pass()` method as `ArrayList<String>`.   
 
 Let us take a look at an example.
 
@@ -205,8 +205,8 @@ The email address must be a valid email address.
 
 The messages we got from the example in the previous section are default messages.   
 But you can write your own messages for any rule on any field.   
-To do that you have to call the method ```addRuleMessage(fieldName, ruleName, message)``` on ```validator```.   
-Assuming you want to change the error message for ```email``` rule.
+To do that you have to call the method `addRuleMessage(fieldName, ruleName, message)` on `validator`.   
+Assuming you want to change the error message for `email` rule.
 
 ```java 
 
@@ -234,8 +234,8 @@ du skal angive en gyldig e-mailadresse.
 
 ## All available rules
 
-There are two types of rules ```explicit``` and ```parameterized```   
-```explicit``` rules do not take any parameter, 
+There are two types of rules `explicit` and `parameterized`   
+`explicit` rules do not take any parameter, 
 .
 .
 .
@@ -244,7 +244,7 @@ There are two types of rules ```explicit``` and ```parameterized```
 | #   | Explicit rules    		   | Description                                           |
 | --- | -------------------------- | ----------------------------------------------------- |
 | 1   | `required`          | The field under validation is required and can not be null or empty| 
-| 2   | `alphaNumeric` 		| The %s must only contain letters and numbers.|
+| 2   | `alphaNumeric` 		| The field must only contain letters and numbers.|
 | 3   | `alphaDash`    | The field under validation must only contain letters, numbers, dashes and underscores.|
 | 4   | `numeric`                    | The field under validation must be a number. |
 | 5   | `email`                  | The field under validation must be a valid email address. |
@@ -255,26 +255,25 @@ There are two types of rules ```explicit``` and ```parameterized```
 **Parameterized Rules**
 | #   | Explicit rules    		   | Description                                           |
 | --- | -------------------------- | ----------------------------------------------------- |
-|1    | digits|                          |
-|2    | between |              |
-|3    | in  |                  |
-|4    | notIn|                    |
-|5	  |	size   |              |
-|6	  |	max    |            |
-|7	  |	min  |             |
-|8	  |	digits_max     |               |
-|9	  |	digits_min     |               |
-|10   |	length   |                     |
-|11	  | length_max   |                  |
-|12	  | length_min  |                  |
-|13	  | gt    |                             |
-|14	  |	gte   |                          |
-|15	  | lt    |                            |
-|16	  | lte  |                           |
-|17	  |  mime |                           |
-|18	  | format |                          |
-|19	  |  regex |                           |
-|20	  | same |                              |
+|1    | `digits`| The `field` must be `parameter` digits. |
+|2    | `between` | The `field` must be between `param-1` and `param-2`. |
+|3    | `in`  | The `field` must be in `parameters`. |
+|4    | `notIn`| The `fiend` cannot be in `parameters`.  |
+|6	  |	`max`    |  The `field` must not be greater than `param`.  |
+|7	  |	`min`  | The `field` must be at least `param`. |
+|8	  |	`digits_max`     | The `field` must not have more than `param` digits.  |
+|9	  |	`digits_min`     | The `field` must have at least `param` digits. |
+|10   |	`length`   | The length of `field` must be `param`. |
+|11	  | `length_max`   | The length of `field` must not be longer than `param`. |
+|12	  | `length_min`  | The length of `field` must not be shorter than `param`. |
+|13	  | `gt`    | The `field` must be greater than `param`. |
+|14	  |	`gte`   | The `field` must be greater than or equal to `param`. |
+|15	  | `lt`    | The `field` must be less than `param`. |
+|16	  | `lte`  | The `field` must be less than or equal to `param`. |
+|17	  | `mime` | The `field` accepts only extensions: `parameters`. |
+|18	  | `format` | The format of `field` must be `param`. |
+|19	  | `regex` | The `field` not matches the Regular Expression `param`. |
+|20	  | `same` | The `field-1` doesn't match `field-2`. |
 
 
 
