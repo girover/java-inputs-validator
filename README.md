@@ -55,7 +55,7 @@ public class Main {
 
 And now to make **validator** starts validating a field, we should first add the required rules   
 to this field.    
-This can be done by calling the method **` - addFieldRules(fieldName, fieldValue, rules)`** on  `validator`.   
+This can be done by calling the method **` addFieldRules(fieldName, fieldValue, rules) `** on  `validator`.   
 This method accepts three parameters, the first one is the name of the field under validation.   
 The second parameter is the value of that field, and the third one is all rules this field's
 value must pass.
@@ -243,37 +243,37 @@ There are two types of rules `explicit` and `parameterized`
 **Explicit Rules**
 | #   | Explicit rules    		   | Description                                           |
 | --- | -------------------------- | ----------------------------------------------------- |
-| 1   | `required`          | The field under validation is required and can not be null or empty| 
-| 2   | `alphaNumeric` 		| The field must only contain letters and numbers.|
-| 3   | `alphaDash`    | The field under validation must only contain letters, numbers, dashes and underscores.|
-| 4   | `numeric`                    | The field under validation must be a number. |
-| 5   | `email`                  | The field under validation must be a valid email address. |
-| 6   | `date`               | The field under validation must be a valid date. |
-| 7   | `boolean`                 | The field must be true or false.|
+| 1   | **`required`**          | The field under validation is required and can not be null or empty| 
+| 2   | **`alphaNumeric`** 		| The field must only contain letters and numbers.|
+| 3   | **`alphaDash`**    | The field under validation must only contain letters, numbers, dashes and underscores.|
+| 4   | **`numeric`**                    | The field under validation must be a number. |
+| 5   | **`email`**                  | The field under validation must be a valid email address. |
+| 6   | **`date`**               | The field under validation must be a valid date. |
+| 7   | **`boolean`**                 | The field must be true or false.|
 
 
 **Parameterized Rules**
 | #   | Explicit rules    		   | Description                                           |
 | --- | -------------------------- | ----------------------------------------------------- |
-|1    | `digits`| The `field` must be `parameter` digits. |
-|2    | `between` | The `field` must be between `param-1` and `param-2`. |
-|3    | `in`  | The `field` must be in `parameters`. |
-|4    | `notIn`| The `fiend` cannot be in `parameters`.  |
-|6	  |	`max`    |  The `field` must not be greater than `param`.  |
-|7	  |	`min`  | The `field` must be at least `param`. |
-|8	  |	`digits_max`     | The `field` must not have more than `param` digits.  |
-|9	  |	`digits_min`     | The `field` must have at least `param` digits. |
-|10   |	`length`   | The length of `field` must be `param`. |
-|11	  | `length_max`   | The length of `field` must not be longer than `param`. |
-|12	  | `length_min`  | The length of `field` must not be shorter than `param`. |
-|13	  | `gt`    | The `field` must be greater than `param`. |
-|14	  |	`gte`   | The `field` must be greater than or equal to `param`. |
-|15	  | `lt`    | The `field` must be less than `param`. |
-|16	  | `lte`  | The `field` must be less than or equal to `param`. |
-|17	  | `mime` | The `field` accepts only extensions: `parameters`. |
-|18	  | `format` | The format of `field` must be `param`. |
-|19	  | `regex` | The `field` not matches the Regular Expression `param`. |
-|20	  | `same` | The `field-1` doesn't match `field-2`. |
+|1    | **`digits`**| The `field` must be `parameter` digits. |
+|2    | **`between`** | The `field` must be between `param-1` and `param-2`. |
+|3    | **`in`**  | The `field` must be in `parameters`. |
+|4    | **`notIn`**| The `fiend` cannot be in `parameters`.  |
+|6	  |	**`max`**    |  The `field` must not be greater than `param`.  |
+|7	  |	**`min`**  | The `field` must be at least `param`. |
+|8	  |	**`digits_max`**     | The `field` must not have more than `param` digits.  |
+|9	  |	**`digits_min`**     | The `field` must have at least `param` digits. |
+|10   |	**`length`**   | The length of `field` must be `param`. |
+|11	  | **`length_max`**   | The length of `field` must not be longer than `param`. |
+|12	  | **`length_min`**  | The length of `field` must not be shorter than `param`. |
+|13	  | **`gt`**    | The `field` must be greater than `param`. |
+|14	  |	**`gte`**   | The `field` must be greater than or equal to `param`. |
+|15	  | **`lt`**    | The `field` must be less than `param`. |
+|16	  | **`lte`**  | The `field` must be less than or equal to `param`. |
+|17	  | **`mime`** | The `field` accepts only extensions: `parameters`. |
+|18	  | **`format`** | The format of `field` must be `param`. |
+|19	  | **`regex`** | The `field` not matches the Regular Expression `param`. |
+|20	  | **`same`** | The `field-1` doesn't match `field-2`. |
 
 
 
