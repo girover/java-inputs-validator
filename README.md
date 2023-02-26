@@ -255,13 +255,26 @@ There are two types of rules ```explicit``` and ```parameterized```
 **Parameterized Rules**
 | #   | Explicit rules    		   | Description                                           |
 | --- | -------------------------- | ----------------------------------------------------- |
-| 1   | `required`          | The field under validation is required and can not be null or empty| 
-| 2   | `alphaNumeric` 		| The %s must only contain letters and numbers.|
-| 3   | `alphaDash`    | The field under validation must only contain letters, numbers, dashes and underscores.|
-| 4   | `numeric`                    | The field under validation must be a number. |
-| 5   | `email`                  | The field under validation must be a valid email address. |
-| 6   | `date`               | The field under validation must be a valid date. |
-| 7   | `boolean`                 | The field must be true or false.|
+|1    | digits|                          |
+|2    | between |              |
+|3    | in  |                  |
+|4    | notIn|                    |
+|5	  |	size   |              |
+|6	  |	max    |            |
+|7	  |	min  |             |
+|8	  |	digits_max     |               |
+|9	  |	digits_min     |               |
+|10   |	length   |                     |
+|11	  | length_max   |                  |
+|12	  | length_min  |                  |
+|13	  | gt    |                             |
+|14	  |	gte   |                          |
+|15	  | lt    |                            |
+|16	  | lte  |                           |
+|17	  |  mime |                           |
+|18	  | format |                          |
+|19	  |  regex |                           |
+|20	  | same |                              |
 
 
 
