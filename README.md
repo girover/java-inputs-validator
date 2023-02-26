@@ -281,7 +281,7 @@ There are two types of rules ```explicit``` and ```parameterized```
 
 ## Class Diagram
 
-![Screenshot_20230225_021714](https://user-images.githubusercontent.com/53403538/221359713-6dcaa4b7-0c5a-43ed-9bb6-e10fb813622e.png)
+![Screenshot_20230226_113949](https://user-images.githubusercontent.com/53403538/221405583-d9e4a9a4-065f-49b2-bec2-67010c1b83b7.png)
 
 ## Changelog
 
