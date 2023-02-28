@@ -201,7 +201,7 @@ There are two types of rules `explicit` and `parameterized`
 |20	  | **`same`** | The `field-1` doesn't match `field-2`. |
 
 **All Rules**
-| #   | Rule Name    		   | Description                                           |
+| #   | Exlpicit Rules (Do not take Parameters)	   | Parameterized Rules (Accepts parameters)   |
 | --- | -------------------------- | ----------------------------------------------------- |
 |1    |[**`required`**](#required) | **`digits`**|
 |2    | **`alphaNumeric`** | **`between`**  |
