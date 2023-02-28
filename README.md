@@ -224,7 +224,7 @@ There are two types of rules `explicit` and `parameterized`
 |20	  ||**`same`**  |
 
 
-#### Required  [:arrow_up:](#all-available-rules)
+#### Required
 Required means that the field cann't be null or blank String.
 
 ```java
@@ -232,7 +232,8 @@ Required means that the field cann't be null or blank String.
 		
 	validator.addFieldRules("name", name, "required");
 ```
-#### alphaNumeric  [:arrow_up:](#all-available-rules)
+  [:arrow_up:](#all-available-rules)
+#### alphaNumeric
 The field under validation must only contain letters and numbers.
 > Note
 > This cann't accept spaces
@@ -242,7 +243,8 @@ The field under validation must only contain letters and numbers.
 		
 	validator.addFieldRules("group name", group, "alphaNumeric");
 ```
-#### alphaDash  [:arrow_up:](#all-available-rules)
+  [:arrow_up:](#all-available-rules)
+#### alphaDash
 The field under validation must only contain letters, numbers, dashes and underscores.
 > Note
 > This cann't accept spaces
@@ -252,7 +254,8 @@ The field under validation must only contain letters, numbers, dashes and unders
 		
 	validator.addFieldRules("CPR", CPR, "alphaDash");
 ```
-#### numeric  [:arrow_up:](#all-available-rules)
+  [:arrow_up:](#all-available-rules)
+#### numeric
 The field under validation must be a number.
 
 ```java
@@ -260,7 +263,8 @@ The field under validation must be a number.
 		
 	validator.addFieldRules("Age", age, "numeric");
 ```
-#### email  [:arrow_up:](#all-available-rules)
+  [:arrow_up:](#all-available-rules)
+#### email
 The field under validation must be a valid email address.
 
 ```java
@@ -268,7 +272,8 @@ The field under validation must be a valid email address.
 		
 	validator.addFieldRules("Email", email, "email");
 ```
-#### date  [:arrow_up:](#all-available-rules)
+  [:arrow_up:](#all-available-rules)
+#### date
 The field under validation must be a valid date.
 
 ```java
@@ -276,7 +281,8 @@ The field under validation must be a valid date.
 		
 	validator.addFieldRules("birthDate", birthDate, "date");
 ```
-#### boolean  [:arrow_up:](#all-available-rules)
+  [:arrow_up:](#all-available-rules)
+#### boolean
 The field must be true or false.
 
 ```java
@@ -284,7 +290,7 @@ The field must be true or false.
 		
 	validator.addFieldRules("booleanField", booleanField, "boolean");
 ```
-
+  [:arrow_up:](#all-available-rules)
 
 ## Displaying error messages
 
