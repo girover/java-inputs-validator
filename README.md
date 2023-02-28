@@ -200,6 +200,29 @@ There are two types of rules `explicit` and `parameterized`
 |19	  | **`regex`** | The `field` not matches the Regular Expression `param`. |
 |20	  | **`same`** | The `field-1` doesn't match `field-2`. |
 
+**All Rules**
+| #   | Rule Name    		   | Description                                           |
+| --- | -------------------------- | ----------------------------------------------------- |
+|1    |[**`required`**](#required) | **`digits`**|
+|2    | **`alphaNumeric`** | **`between`**  |
+|3    | **`alphaDash`** |**`in`**  | 
+|4    | **`numeric`** |**`notIn`**  |
+|6	  | **`email`** |**`max`**    |
+|7	  | **`date`** |**`min`**    |
+|8	  | **`boolean`**  |**`digits_max`**     |
+|9	  ||**`digits_min`**    |
+|10   ||**`length`**   |
+|11	  ||**`length_max`** |
+|12	  ||**`length_min`**|
+|13	  ||**`gt`**    |
+|14	  ||**`gte`**   |
+|15	  ||**`lt`**    |
+|16	  ||**`lte`**  |
+|17	  ||**`mime`** |
+|18	  ||**`format`** |
+|19	  ||**`regex`** |
+|20	  ||**`same`**  |
+
 
 #### Required
 Required means that the field cann't be null or blank String.
