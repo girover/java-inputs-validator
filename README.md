@@ -232,7 +232,7 @@ Required means that the field cann't be null or blank String.
 		
 	validator.addFieldRules("name", name, "required");
 ```
-#### **alphaNumeric**  :arrow_up:
+#### **alphaNumeric**  [:arrow_up:](#all-available-rules)
 Required means that the field cann't be null or blank String.
 
 ```java
