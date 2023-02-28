@@ -224,7 +224,7 @@ There are two types of rules `explicit` and `parameterized`
 |20	  ||**`same`**  |
 
 
-#### **Required**
+#### **Required**  [:arrow_up:](#all-available-rules)
 Required means that the field cann't be null or blank String.
 
 ```java
@@ -233,54 +233,57 @@ Required means that the field cann't be null or blank String.
 	validator.addFieldRules("name", name, "required");
 ```
 #### **alphaNumeric**  [:arrow_up:](#all-available-rules)
-Required means that the field cann't be null or blank String.
+The field under validation must only contain letters and numbers.
+> Note
+> This cann't accept spaces
 
 ```java
-	String name = "";
+	String group = "group999";
 		
-	validator.addFieldRules("name", name, "required");
+	validator.addFieldRules("group name", group, "alphaNumeric");
 ```
-#### **Required**
-Required means that the field cann't be null or blank String.
+#### **alphaDash**  [:arrow_up:](#all-available-rules)
+The field under validation must only contain letters, numbers, dashes and underscores.
+> Note
+> This cann't accept spaces
 
 ```java
-	String name = "";
+	String CPR = "123456-1233";
 		
-	validator.addFieldRules("name", name, "required");
+	validator.addFieldRules("CPR", CPR, "alphaDash");
 ```
-#### **Required**
-Required means that the field cann't be null or blank String.
+#### **numeric**  [:arrow_up:](#all-available-rules)
+The field under validation must be a number.
 
 ```java
-	String name = "";
+	String age = "40";
 		
-	validator.addFieldRules("name", name, "required");
+	validator.addFieldRules("Age", age, "numeric");
 ```
-#### **Required**
-Required means that the field cann't be null or blank String.
+#### **email**  [:arrow_up:](#all-available-rules)
+The field under validation must be a valid email address.
 
 ```java
-	String name = "";
+	String email = "example@domain.com";
 		
-	validator.addFieldRules("name", name, "required");
+	validator.addFieldRules("Email", email, "email");
 ```
-#### **Required**
-Required means that the field cann't be null or blank String.
+#### **date**  [:arrow_up:](#all-available-rules)
+The field under validation must be a valid date.
 
 ```java
-	String name = "";
+	String birthDate = "01/01/1990";
 		
-	validator.addFieldRules("name", name, "required");
+	validator.addFieldRules("birthDate", birthDate, "date");
 ```
-#### **Required**
-Required means that the field cann't be null or blank String.
+#### **boolean**  [:arrow_up:](#all-available-rules)
+The field must be true or false.
 
 ```java
-	String name = "";
+	String booleanField = "1";
 		
-	validator.addFieldRules("name", name, "required");
+	validator.addFieldRules("booleanField", booleanField, "boolean");
 ```
-
 
 
 ## Displaying error messages
