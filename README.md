@@ -165,17 +165,6 @@ There are two types of rules `explicit` and `parameterized`
 .
 .
 
-**Explicit Rules**
-| #   | Rule Name    		   | Description                                           |
-| --- | -------------------------- | ----------------------------------------------------- |
-| 1   | [**`required`**](#required)          | The field under validation is required and can not be null or empty| 
-| 2   | **`alphaNumeric`** 		| The field must only contain letters and numbers.|
-| 3   | **`alphaDash`**    | The field under validation must only contain letters, numbers, dashes and underscores.|
-| 4   | **`numeric`**                    | The field under validation must be a number. |
-| 5   | **`email`**                  | The field under validation must be a valid email address. |
-| 6   | **`date`**               | The field under validation must be a valid date. |
-| 7   | **`boolean`**                 | The field must be true or false.|
-
 
 **Parameterized Rules**
 | #   | Rule Name    		   | Description                                           |
@@ -225,16 +214,16 @@ There are two types of rules `explicit` and `parameterized`
 
 
 #### Required
-Required means that the field cann't be null or blank String.
+Required means that the field cann't be null or blank String.  [:arrow_up:](#all-available-rules)
 
 ```java
 	String name = "";
 		
 	validator.addFieldRules("name", name, "required");
 ```
-  [:arrow_up:](#all-available-rules)
+
 #### alphaNumeric
-The field under validation must only contain letters and numbers.
+The field under validation must only contain letters and numbers.  [:arrow_up:](#all-available-rules)
 > Note
 > This cann't accept spaces
 
@@ -243,9 +232,9 @@ The field under validation must only contain letters and numbers.
 		
 	validator.addFieldRules("group name", group, "alphaNumeric");
 ```
-  [:arrow_up:](#all-available-rules)
+
 #### alphaDash
-The field under validation must only contain letters, numbers, dashes and underscores.
+The field under validation must only contain letters, numbers, dashes and underscores.  [:arrow_up:](#all-available-rules)
 > Note
 > This cann't accept spaces
 
@@ -254,43 +243,73 @@ The field under validation must only contain letters, numbers, dashes and unders
 		
 	validator.addFieldRules("CPR", CPR, "alphaDash");
 ```
-  [:arrow_up:](#all-available-rules)
+
 #### numeric
-The field under validation must be a number.
+The field under validation must be a number.  [:arrow_up:](#all-available-rules)
 
 ```java
 	String age = "40";
 		
 	validator.addFieldRules("Age", age, "numeric");
 ```
-  [:arrow_up:](#all-available-rules)
+
 #### email
-The field under validation must be a valid email address.
+The field under validation must be a valid email address.  [:arrow_up:](#all-available-rules)
 
 ```java
 	String email = "example@domain.com";
 		
 	validator.addFieldRules("Email", email, "email");
 ```
-  [:arrow_up:](#all-available-rules)
+
 #### date
-The field under validation must be a valid date.
+The field under validation must be a valid date.  [:arrow_up:](#all-available-rules)
 
 ```java
 	String birthDate = "01/01/1990";
 		
 	validator.addFieldRules("birthDate", birthDate, "date");
 ```
-  [:arrow_up:](#all-available-rules)
+
 #### boolean
-The field must be true or false.
+The field must be true or false.  [:arrow_up:](#all-available-rules)
 
 ```java
 	String booleanField = "1";
 		
 	validator.addFieldRules("booleanField", booleanField, "boolean");
 ```
-  [:arrow_up:](#all-available-rules)
+### Parameterized Rules
+
+#### digits:*value*
+The integer under validation must have an exact length of value.  [:arrow_up:](#all-available-rules)
+
+```java
+	String CPR = "1";
+		
+	validator.addFieldRules("CPR", CPR, "digits:10");
+```
+#### between:*min,max*
+The integer under validation must have an exact length of value. The field under validation must have a size between the given min and max. Strings and numerics are evaluated in the same fashion as the size rule.  [:arrow_up:](#all-available-rules)
+
+```java
+	String age = "25";
+	String password = "secret";
+		
+	// age value must be between 18 and 50.
+	validator.addFieldRules("Age", age, "between:18,50");
+	// the length of password must be between 5 and 15 characters.
+	validator.addFieldRules("Password", password, "between:5,15");
+```
+#### in:*foo,bar,...*
+The field under validation must be included in the given list of values.  [:arrow_up:](#all-available-rules)
+
+```java
+	String userRole = "admin";
+		
+	validator.addFieldRules("user role", userRole, "in:admin,editor,anotherRole");
+```
+
 
 ## Displaying error messages
 
