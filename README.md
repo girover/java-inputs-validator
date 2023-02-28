@@ -224,7 +224,55 @@ There are two types of rules `explicit` and `parameterized`
 |20	  ||**`same`**  |
 
 
-#### Required
+#### **Required**
+Required means that the field cann't be null or blank String.
+
+```java
+	String name = "";
+		
+	validator.addFieldRules("name", name, "required");
+```
+#### **alphaNumeric**  :arrow_up:
+Required means that the field cann't be null or blank String.
+
+```java
+	String name = "";
+		
+	validator.addFieldRules("name", name, "required");
+```
+#### **Required**
+Required means that the field cann't be null or blank String.
+
+```java
+	String name = "";
+		
+	validator.addFieldRules("name", name, "required");
+```
+#### **Required**
+Required means that the field cann't be null or blank String.
+
+```java
+	String name = "";
+		
+	validator.addFieldRules("name", name, "required");
+```
+#### **Required**
+Required means that the field cann't be null or blank String.
+
+```java
+	String name = "";
+		
+	validator.addFieldRules("name", name, "required");
+```
+#### **Required**
+Required means that the field cann't be null or blank String.
+
+```java
+	String name = "";
+		
+	validator.addFieldRules("name", name, "required");
+```
+#### **Required**
 Required means that the field cann't be null or blank String.
 
 ```java
