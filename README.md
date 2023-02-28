@@ -12,10 +12,11 @@
   - [prerequisites](#prerequisites)
   - [Usage](#usage)
     - [Validator Class](#validator-class)
-    - [How to write rules](#how-to-write-rules)
+    - [Writing rules](#writing-rules)
+    - [All available rules](#all-available-rules)
     - [Displaying error messages](#displaying-error-messages)
     - [Customizing error messages](#customizing-error-messages)
-    - [All available rules](#all-available-rules)
+    - [Validation exception](#validation-exception)
   - [Class Diagram](#class-diagram)
   - [Changelog](#changelog)
   - [Contributing](#contributing)
@@ -99,7 +100,7 @@ In this case you can pass `true` as argument to the method `pass(boolean)` to te
 .
 .
 
-## How to write rules
+## Writing rules
 
 This package uses two types of rules `explicit` and `parameterized`.   
 The difference between these two types is that **parameterized** rules accept parameters,   
@@ -116,7 +117,7 @@ validator.addFieldRules("email", "example@domain.com", "required|email")
 
 ```
 
-As we can see the field **email** has two **rules** to pass. These rules are `required` and `email`.   
+As you can see the field **email** has two **rules** to pass. These rules are `required` and `email`.   
 **required** means that the value of this field can not be null or empty. **email** means that the value of this field must be a valid email address.   
 There is no limitation for how many rules you write in one string.
 ***But what if a rule takes parameters. How to pass parameters to the rule?***
@@ -155,6 +156,61 @@ public class Main {
 }
 ```
 The value of field `name` is an empty string and the rule `required` is not given to it, so the rule `length:10` will not be applied to this field. But if the value of `name` is not empty, then the rule `length:10` will be applied and ***error message*** will be generated if this value is not exactly 10 letters.
+
+## All available rules
+
+There are two types of rules `explicit` and `parameterized`   
+`explicit` rules do not take any parameter, 
+.
+.
+.
+
+**Explicit Rules**
+| #   | Rule Name    		   | Description                                           |
+| --- | -------------------------- | ----------------------------------------------------- |
+| 1   | [**`required`**](#required)          | The field under validation is required and can not be null or empty| 
+| 2   | **`alphaNumeric`** 		| The field must only contain letters and numbers.|
+| 3   | **`alphaDash`**    | The field under validation must only contain letters, numbers, dashes and underscores.|
+| 4   | **`numeric`**                    | The field under validation must be a number. |
+| 5   | **`email`**                  | The field under validation must be a valid email address. |
+| 6   | **`date`**               | The field under validation must be a valid date. |
+| 7   | **`boolean`**                 | The field must be true or false.|
+
+
+**Parameterized Rules**
+| #   | Rule Name    		   | Description                                           |
+| --- | -------------------------- | ----------------------------------------------------- |
+|1    | **`digits`**| The `field` must be `parameter` digits. |
+|2    | **`between`** | The `field` must be between `param-1` and `param-2`. |
+|3    | **`in`**  | The `field` must be in `parameters`. |
+|4    | **`notIn`**| The `fiend` cannot be in `parameters`.  |
+|6	  |	**`max`**    |  The `field` must not be greater than `param`.  |
+|7	  |	**`min`**  | The `field` must be at least `param`. |
+|8	  |	**`digits_max`**     | The `field` must not have more than `param` digits.  |
+|9	  |	**`digits_min`**     | The `field` must have at least `param` digits. |
+|10   |	**`length`**   | The length of `field` must be `param`. |
+|11	  | **`length_max`**   | The length of `field` must not be longer than `param`. |
+|12	  | **`length_min`**  | The length of `field` must not be shorter than `param`. |
+|13	  | **`gt`**    | The `field` must be greater than `param`. |
+|14	  |	**`gte`**   | The `field` must be greater than or equal to `param`. |
+|15	  | **`lt`**    | The `field` must be less than `param`. |
+|16	  | **`lte`**  | The `field` must be less than or equal to `param`. |
+|17	  | **`mime`** | The `field` accepts only extensions: `parameters`. |
+|18	  | **`format`** | The format of `field` must be `param`. |
+|19	  | **`regex`** | The `field` not matches the Regular Expression `param`. |
+|20	  | **`same`** | The `field-1` doesn't match `field-2`. |
+
+
+#### Required
+Required means that the field cann't be null or blank String.
+
+```java
+	String name = "";
+		
+	validator.addFieldRules("name", name, "required");
+```
+
+
 
 ## Displaying error messages
 
@@ -232,56 +288,16 @@ The result of this code will be:
 du skal angive en gyldig e-mailadresse. 
 ```
 
-## All available rules
-
-There are two types of rules `explicit` and `parameterized`   
-`explicit` rules do not take any parameter, 
-.
-.
-.
-
-**Explicit Rules**
-| #   | Explicit rules    		   | Description                                           |
-| --- | -------------------------- | ----------------------------------------------------- |
-| 1   | **`required`**          | The field under validation is required and can not be null or empty| 
-| 2   | **`alphaNumeric`** 		| The field must only contain letters and numbers.|
-| 3   | **`alphaDash`**    | The field under validation must only contain letters, numbers, dashes and underscores.|
-| 4   | **`numeric`**                    | The field under validation must be a number. |
-| 5   | **`email`**                  | The field under validation must be a valid email address. |
-| 6   | **`date`**               | The field under validation must be a valid date. |
-| 7   | **`boolean`**                 | The field must be true or false.|
-
-
-**Parameterized Rules**
-| #   | Explicit rules    		   | Description                                           |
-| --- | -------------------------- | ----------------------------------------------------- |
-|1    | **`digits`**| The `field` must be `parameter` digits. |
-|2    | **`between`** | The `field` must be between `param-1` and `param-2`. |
-|3    | **`in`**  | The `field` must be in `parameters`. |
-|4    | **`notIn`**| The `fiend` cannot be in `parameters`.  |
-|6	  |	**`max`**    |  The `field` must not be greater than `param`.  |
-|7	  |	**`min`**  | The `field` must be at least `param`. |
-|8	  |	**`digits_max`**     | The `field` must not have more than `param` digits.  |
-|9	  |	**`digits_min`**     | The `field` must have at least `param` digits. |
-|10   |	**`length`**   | The length of `field` must be `param`. |
-|11	  | **`length_max`**   | The length of `field` must not be longer than `param`. |
-|12	  | **`length_min`**  | The length of `field` must not be shorter than `param`. |
-|13	  | **`gt`**    | The `field` must be greater than `param`. |
-|14	  |	**`gte`**   | The `field` must be greater than or equal to `param`. |
-|15	  | **`lt`**    | The `field` must be less than `param`. |
-|16	  | **`lte`**  | The `field` must be less than or equal to `param`. |
-|17	  | **`mime`** | The `field` accepts only extensions: `parameters`. |
-|18	  | **`format`** | The format of `field` must be `param`. |
-|19	  | **`regex`** | The `field` not matches the Regular Expression `param`. |
-|20	  | **`same`** | The `field-1` doesn't match `field-2`. |
-
-
-
 
 ## Class Diagram
 
 ![Screenshot_20230226_113949](https://user-images.githubusercontent.com/53403538/221405583-d9e4a9a4-065f-49b2-bec2-67010c1b83b7.png)
 
+## Validation exception
+.
+.
+.
+.
 ## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.

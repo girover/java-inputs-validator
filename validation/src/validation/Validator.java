@@ -38,6 +38,15 @@ public class Validator {
 		return failedFields;
 	}
 	
+	private Field getFailedField(String fieldName){
+		for (Field field : failedFields) {
+			if(field.getName().equals(fieldName))
+				return field;
+		}
+		
+		return null;
+	}
+	
 	/**
 	 * Add rules for the given field to validate the given value.
 	 * @param fieldName
@@ -76,7 +85,7 @@ public class Validator {
 	 * @return boolean
 	 * @throws ValidationException
 	 */
-	public boolean pass(boolean stopOnFirstFailure) throws ValidationException {
+	public boolean passes(boolean stopOnFirstFailure) throws ValidationException {
 
 		passFieldsUnderValidation(stopOnFirstFailure);
 		
@@ -91,8 +100,8 @@ public class Validator {
 	 * @return
 	 * @throws ValidationException
 	 */
-	public boolean pass() throws ValidationException {
-		return pass(false);
+	public boolean passes() throws ValidationException {
+		return passes(false);
 	}
 	
 	private void passFieldsUnderValidation(boolean stopOnFirstFailure) throws ValidationException {
@@ -111,9 +120,9 @@ public class Validator {
 				field.setSameField(getFieldUnderValidationByName(fieldName));
 			}
 			
-			field.pass(stopOnFirstFailure);
+//			field.pass(stopOnFirstFailure);
 			
-			if(!field.hasPassedRules()) {
+			if(!field.passes(stopOnFirstFailure)) {
 				failedFields.add(field);
 				if(stopOnFirstFailure)
 					break;
@@ -164,7 +173,7 @@ public class Validator {
 	}
 	
 	/**
-	 * We get all error messages for failed rules.
+	 * Retrieve all error messages from validator for failed rules.
 	 * @return ArrayList<String>
 	 */
 	public ArrayList<String> getErrorMessages() {
@@ -173,6 +182,24 @@ public class Validator {
 		
 		for (Field field : failedFields)
 			for (Rule rule : field.getFailedRules()) {
+				errorMessages.add(rule.getMessage());
+			}
+		
+		return errorMessages;
+	}
+	
+	/**
+	 * Retrieve all error messages from validator for a specific field.
+	 * @return ArrayList<String>
+	 */
+	public ArrayList<String> getErrorMessagesFor(String fieldName) {
+		
+		ArrayList<String> errorMessages = new ArrayList<>();
+		
+		Field failedField = getFailedField(fieldName);
+		
+		if(failedField != null)
+			for (Rule rule : failedField.getFailedRules()) {
 				errorMessages.add(rule.getMessage());
 			}
 		

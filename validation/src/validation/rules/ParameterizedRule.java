@@ -23,7 +23,7 @@ public class ParameterizedRule extends Rule {
 	 * @throws ValidationException
 	 */
 	public ParameterizedRule(String name) throws ValidationException {
-		super(name, "parameterized");
+		super(name);
 		
 		setMatcher(parseMatcher(getName()));
 	}

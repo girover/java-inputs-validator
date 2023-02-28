@@ -100,10 +100,10 @@ public class Field {
 		return passedAllRules;
 	}
 
-	public void pass(boolean stopOnFirstFailure) throws ValidationException {
+	public boolean passes(boolean stopOnFirstFailure) throws ValidationException {
 		// If this field had been checked before 
 		if(hadBeenChecked)
-			return;
+			return true;
 		/**
 		 * Here we check if this field must be the same as another field.
 		 * If this field has the same value as the reference field, so all
@@ -115,7 +115,7 @@ public class Field {
 			if(!isRequired() && (value == null || value.isBlank()))
 				continue;
 		
-			if(!rule.pass(value)) {
+			if(!rule.passes(value)) {
 				failedRules.add(rule);
 				if(stopOnFirstFailure)
 					break;
@@ -128,6 +128,8 @@ public class Field {
 			passedAllRules = true;
 		
 		hadBeenChecked = true;
+		
+		return passedAllRules;
 	}
 	
 	/**

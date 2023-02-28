@@ -12,7 +12,7 @@ public class ExplicitRule extends Rule {
 	 * @throws ValidationException
 	 */
 	public ExplicitRule(String name) throws ValidationException {
-		super(name, "explicit");
+		super(name);
 		setMatcher(parseMatcher(name));
 	}
 	
